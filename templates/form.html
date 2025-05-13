@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Decision Maker</title>
+</head>
+<body>
+    <div>
+        <form action="{{ url_for('add') }}" method="post">
+            <h1>Add options to your selection pool</h1>
+            <input type="text" name="input"/>
+
+            <button type="submit">Add</button>
+        </form>
+    </div>
+    <div>
+        {% for deci in d %}
+        <ul>
+            <li>{{deci}}</li>
+        </ul>
+        {% endfor %}
+
+    </div>
+</body>
+</html>

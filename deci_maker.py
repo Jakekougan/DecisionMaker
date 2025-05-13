@@ -3,16 +3,17 @@ import random as r
 
 class Decisions:
     def __init__(self):
-        self.decis = set()
+        self.decis = []
 
     def new(self, choice):
-        self.decis.add(choice)
+        self.decis.append(choice)
 
     def remove(self, choice):
-        self.decis.remove(choice)
+        self.decis.pop(choice)
 
     def rand_select(self):
-        r.choice(self.decis)
+        return r.choice(self.decis)
+
 
     def reset(self):
         u_resp = input("Are you sure you want to clear the decisions? This cannot be undone!")
@@ -21,6 +22,8 @@ class Decisions:
             return "Cache Cleared"
         else:
             return "Reset aborted!"
+
+
 
 
 
