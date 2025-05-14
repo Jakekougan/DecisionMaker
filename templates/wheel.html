@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <button id="spin">Spin!</button>
+    <span class="arrow"></span>
+    <div class="container">
+        {% for op in ops %}
+            <div class="sel" style="--base: {{(loop.index - 1) * (360 / ops|length)}}deg;">{{op}}</div>
+        {% endfor %}
+    </div>
+
+</body>
+<script>
+
+
+        let container = document.querySelector('.container');
+        let btn = document.getElementById('spin');
+        let number = Math.ceil(Math.random() * 100000);
+
+        btn.onclick = function() {
+            container.style.transform = "rotate(" + number + "deg)";
+            number+=  Math.ceil(Math.random() * 100000);
+
+        }
+
+        function wheelManage(amt) {
+            amt += 45;
+            return amt
+        }
+
+    </script>
+</html>

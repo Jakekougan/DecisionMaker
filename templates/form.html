@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <title>Decision Maker</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
 </head>
-<body>
+<body class="body">
     <div>
         <form action="{{ url_for('add') }}" method="post">
             <h1>Add options to your selection pool</h1>
@@ -14,6 +15,11 @@
         </form>
     </div>
     <div>
+        <a href="{{url_for('home')}}">
+            <button>Home</button>
+        </a>
+    </div>
+    <div>
         {% for deci in d %}
         <ul>
             <li>{{deci}}</li>
@@ -21,5 +27,21 @@
         {% endfor %}
 
     </div>
+
+    {% if session["type"] == "Choice" and d %}
+        <div>
+            <a href="{{url_for('select_random')}}">
+                <button>Select Random</button>
+            </a>
+        </div>
+    {% elif session["type"] == "elim" and d %}
+        <div>
+            <a href="{{url_for('remove_random')}}">
+                <button>Eliminate One</button>
+            </a>
+        </div>
+    {% else %}
+
+    {% endif %}
 </body>
 </html>

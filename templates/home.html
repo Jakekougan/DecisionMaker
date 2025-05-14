@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>homepage</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
 </head>
-<body>
-    <div>
-        <h1>Welcome to the decision maker</h1>
-    </div>
-    <div>
-        <a href="{{url_for('form')}}">
-            <button>Choice maker</button>
-        </a>
-    </div>
-    <div>
-        <a href="{{url_for('form')}}">
-            <button>Process of Elimination</button>
-        </a>
-    </div>
+<body class="body">
+    <form action="{{url_for('form')}}" method="get">
+        <div>
+            <h1>Welcome to the Decision Maker</h1>
+        </div>
+        <div>
+            <button class="btn" type="submit" name="func" value="Choice">Choice maker</button>
+        </div>
+        <div>
+            <button class="btn"type="submit" name="func" value="elim">Process of Elimination</button>
+        </div>
+    </form>
 </body>
 </html>

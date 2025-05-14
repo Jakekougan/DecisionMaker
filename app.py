@@ -29,8 +29,9 @@ def add():
 
 @app.route("/selRand", methods=["GET"])
 def select_random():
-    r = rand.choice(session['ops'])
-    return render_template("sel.html", dec=r)
+    d = session["ops"]
+    choice = rand.choice(d)
+    return render_template("sel.html", ops=d, choice=choice)
 
 
 @app.route("/delRand", methods=["GET"])
@@ -41,4 +42,13 @@ def remove_random():
     removed = d.pop(indx)
     flash(f"{removed} has been removed from the pool")
     return render_template("form.html", removed=removed, d=d)
+
+@app.route("/tst", methods=["GET"])
+def testBS():
+    return render_template("layout.html")
+
+
+
+
+
 

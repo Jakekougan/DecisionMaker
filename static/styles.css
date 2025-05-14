@@ -1,0 +1,13 @@
+* {
+    background-color:darksalmon;
+}
+
+.body {
+    text-align: center;
+}
+
+.btn {
+    margin: 25px;
+    color: black;
+    background-color: ghostwhite;
+}
